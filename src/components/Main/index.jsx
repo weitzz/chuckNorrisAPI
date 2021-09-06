@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react'
-import axios from 'axios'
+//import axios from 'axios'
+import api from '../../services/api';
 import { Container, makeStyles, Typography } from "@material-ui/core"
 import Button from '@material-ui/core/Button';
 import Chuck from '../../assets/chuck.png'
@@ -27,7 +28,7 @@ const Main = () => {
 
   async function loadJokes(){
     try {
-      const response = await axios.get(`http://api.icndb.com/jokes/random`)
+      const response = await api.get(`/random`)
       setState(response.data.value.joke)
     } catch (error) {
       console.log(error)
